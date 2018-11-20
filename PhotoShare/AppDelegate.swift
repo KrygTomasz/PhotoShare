@@ -18,10 +18,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         FBSDKApplicationDelegate.sharedInstance()?.application(application, didFinishLaunchingWithOptions: launchOptions)
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let loadingVC = storyboard.instantiateViewController(withIdentifier: "LoadingVC")
+        window?.rootViewController = loadingVC
         if FBSDKAccessToken.current() != nil {
             //goto home page
+            UserFirebase.signIn(token: FBSDKAccessToken.current()) { (status) in
+                if status {
+                    let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileVC")
+                    self.window?.rootViewController = profileVC
+                }
+            }
         } else {
             //goto login page
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "LoginVC")
+            window?.rootViewController = loginVC
         }
         return true
     }
