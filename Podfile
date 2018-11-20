@@ -7,5 +7,7 @@ target 'PhotoShare' do
 
   # Pods for PhotoShare
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'FBSDKLoginKit'
 
 end
