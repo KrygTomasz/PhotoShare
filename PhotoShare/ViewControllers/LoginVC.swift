@@ -7,9 +7,7 @@
 //
 
 import UIKit
-import FBSDKCoreKit
 import FBSDKLoginKit
-import Firebase
 
 class LoginVC: UIViewController {
 
@@ -30,17 +28,11 @@ class LoginVC: UIViewController {
 extension LoginVC: FBSDKLoginButtonDelegate {
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
-        let credential = FacebookAuthProvider.credential(withAccessToken: result.token.tokenString)
-        Auth.auth().signInAndRetrieveData(with: credential) { (auth, error) in
-            if let error = error {
-                NSLog("Facebook logging error: \(error.localizedDescription)")
-                return
-            } else {
-                print(auth?.user.displayName ?? "")
-                //user is signed in
+        UserFirebase.signIn(result: result) { (status) in
+            if status {
+                self.performSegue(withIdentifier: "ShowProfileVC", sender: self)
             }
         }
-
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
