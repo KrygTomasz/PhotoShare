@@ -30,7 +30,7 @@ extension LoginVC: FBSDKLoginButtonDelegate {
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         UserFirebase.signIn(result: result) { (status) in
             if status {
-                self.performSegue(withIdentifier: "ShowProfileVC", sender: self)
+                self.performSegue(withIdentifier: "ShowPhotoShareHomeVC", sender: self)
             }
         }
     }

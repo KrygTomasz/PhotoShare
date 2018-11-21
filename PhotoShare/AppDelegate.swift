@@ -26,8 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             //goto home page
             UserFirebase.signIn(token: FBSDKAccessToken.current()) { (status) in
                 if status {
-                    let navigationVC = storyboard.instantiateViewController(withIdentifier: "NavigationVC")
-                    self.window?.rootViewController = navigationVC
+                    let homeVC = storyboard.instantiateViewController(withIdentifier: "PhotoShareHomeVC")
+                    self.window?.rootViewController = homeVC
                 }
             }
         } else {
