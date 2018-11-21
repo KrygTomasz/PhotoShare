@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SDWebImage
+import FBSDKLoginKit
 
 class ProfileVC: UIViewController {
 
@@ -20,6 +21,15 @@ class ProfileVC: UIViewController {
         let user = Auth.auth().currentUser
         profileImageView.sd_setImage(with: user?.photoURL, completed: nil)
         nameLabel.text = user?.displayName
+    }
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "ShowLoginVC" {
+            let fbLoginManager = FBSDKLoginManager()
+            fbLoginManager.logOut()
+            UserFirebase.signOut()
+        }
+        return true
     }
 
 }

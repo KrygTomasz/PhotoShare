@@ -36,4 +36,12 @@ class UserFirebase {
         }
     }
     
+    class func signOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch let error {
+            NSLog(error.localizedDescription)
+        }
+    }
+    
 }

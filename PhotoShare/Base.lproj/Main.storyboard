@@ -48,14 +48,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="bWa-Sj-V1c" kind="show" identifier="ShowProfileVC" id="fqR-c0-3tf"/>
+                        <segue destination="SHl-k8-ehS" kind="show" identifier="ShowProfileVC" id="fqR-c0-3tf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="241" y="97"/>
+            <point key="canvasLocation" x="87" y="97"/>
         </scene>
-        <!--ProfileVC-->
+        <!--Profile Page-->
         <scene sceneID="75C-Jn-v8Z">
             <objects>
                 <viewController storyboardIdentifier="ProfileVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bWa-Sj-V1c" customClass="ProfileVC" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
@@ -64,17 +64,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Od3-F6-vPR">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ou-Ye-hsP">
-                                        <rect key="frame" x="123.5" y="259.5" width="128" height="128"/>
+                                        <rect key="frame" x="123.5" y="237.5" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="bTM-Ks-B7M"/>
                                             <constraint firstAttribute="width" constant="128" id="n1d-nb-Hkf"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qa-dJ-ZIS">
-                                        <rect key="frame" x="16" y="403.5" width="343" height="21"/>
+                                        <rect key="frame" x="16" y="381.5" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -99,6 +99,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Gsx-vH-2Us"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Profile Page" id="ok8-Fw-sc8">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="ggs-ff-hPo">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="presentation" identifier="ShowLoginVC" modalTransitionStyle="crossDissolve" id="kXl-Cm-KUZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nameLabel" destination="4Qa-dJ-ZIS" id="hDe-5w-I6F"/>
                         <outlet property="profileImageView" destination="2Ou-Ye-hsP" id="FfB-vb-ody"/>
@@ -106,7 +113,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWk-YW-3yN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="983" y="97"/>
+            <point key="canvasLocation" x="2695" y="1012"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="soZ-Td-XgJ">
+            <objects>
+                <navigationController storyboardIdentifier="NavigationVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SHl-k8-ehS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i6S-Zm-vRG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bWa-Sj-V1c" kind="relationship" relationship="rootViewController" id="sbc-td-hKL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6fl-PB-TZO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1639" y="1012"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="kXl-Cm-KUZ"/>
+    </inferredMetricsTieBreakers>
 </document>
