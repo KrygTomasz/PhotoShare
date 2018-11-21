@@ -28,6 +28,10 @@ class ProfileVC: UIViewController {
             let fbLoginManager = FBSDKLoginManager()
             fbLoginManager.logOut()
             UserFirebase.signOut()
+            if navigationController?.tabBarController?.presentingViewController is LoginVC {
+                navigationController?.tabBarController?.dismiss(animated: true, completion: nil)
+                return false
+            }
         }
         return true
     }

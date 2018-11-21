@@ -55,7 +55,7 @@
             </objects>
             <point key="canvasLocation" x="3633" y="2285"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Timeline-->
         <scene sceneID="kY4-w3-r4L">
             <objects>
                 <tableViewController id="V5i-Gs-hLZ" sceneMemberID="viewController">
@@ -78,16 +78,16 @@
                             <outlet property="delegate" destination="V5i-Gs-hLZ" id="bdl-Al-vj4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="0kQ-mw-hhx"/>
+                    <navigationItem key="navigationItem" title="Timeline" id="0kQ-mw-hhx"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ9-l1-YjU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7174" y="1482"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Friends-->
         <scene sceneID="dTH-lI-JTl">
             <objects>
-                <tableViewController id="td3-7I-MN0" sceneMemberID="viewController">
+                <tableViewController id="td3-7I-MN0" customClass="FriendsVC" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="728-1K-1Nf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -107,7 +107,7 @@
                             <outlet property="delegate" destination="td3-7I-MN0" id="zsr-85-EVF"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="s82-k7-bNh"/>
+                    <navigationItem key="navigationItem" title="Friends" id="s82-k7-bNh"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wlj-YM-JMv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,17 +122,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Od3-F6-vPR">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ou-Ye-hsP">
-                                        <rect key="frame" x="123.5" y="237.5" width="128" height="128"/>
+                                        <rect key="frame" x="123.5" y="211.5" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="bTM-Ks-B7M"/>
                                             <constraint firstAttribute="width" constant="128" id="n1d-nb-Hkf"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qa-dJ-ZIS">
-                                        <rect key="frame" x="16" y="381.5" width="343" height="21"/>
+                                        <rect key="frame" x="16" y="355.5" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -179,8 +179,8 @@
                 <navigationController storyboardIdentifier="NavigationVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SHl-k8-ehS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="profileIcon" id="X0e-49-B8s"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="i6S-Zm-vRG">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="i6S-Zm-vRG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -198,8 +198,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rys-G9-xJY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Timeline" image="timelineIcon" id="LyI-Xl-Vta"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9cp-TC-s57">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="9cp-TC-s57">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -217,8 +217,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f6N-Of-35V" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Friends" image="friendsIcon" id="qcK-Cb-HZO"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DDI-c4-flU">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="DDI-c4-flU">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
