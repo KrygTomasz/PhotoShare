@@ -15,6 +15,8 @@
 		0A0C427B21A3DB1F00FB2F50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0C427A21A3DB1F00FB2F50 /* GoogleService-Info.plist */; };
 		0A0C427D21A3E48200FB2F50 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C427C21A3E48200FB2F50 /* LoginVC.swift */; };
 		0A25368621A536090013E02D /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25368521A536090013E02D /* FriendsVC.swift */; };
+		0A261DE021A71D4800969580 /* SearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A261DDF21A71D4800969580 /* SearchResultsVC.swift */; };
+		0A261DE321A71D8C00969580 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A261DE221A71D8C00969580 /* PSUser.swift */; };
 		0A6D51C021A407E2009D7F59 /* UserFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D51BF21A407E2009D7F59 /* UserFirebase.swift */; };
 		0A6D51C221A41A4A009D7F59 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D51C121A41A4A009D7F59 /* ProfileVC.swift */; };
 		CC7348D1FF74348E93836CA0 /* Pods_PhotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDCC97ED94A49DC5121EBD9 /* Pods_PhotoShare.framework */; };
@@ -31,6 +33,8 @@
 		0A0C427A21A3DB1F00FB2F50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A0C427C21A3E48200FB2F50 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		0A25368521A536090013E02D /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
+		0A261DDF21A71D4800969580 /* SearchResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVC.swift; sourceTree = "<group>"; };
+		0A261DE221A71D8C00969580 /* PSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
 		0A6D51BF21A407E2009D7F59 /* UserFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebase.swift; sourceTree = "<group>"; };
 		0A6D51C121A41A4A009D7F59 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		744468B5299B44E499E07972 /* Pods-PhotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoShare/Pods-PhotoShare.debug.xcconfig"; sourceTree = "<group>"; };
@@ -71,6 +75,7 @@
 		0A0C426521A3D78D00FB2F50 /* PhotoShare */ = {
 			isa = PBXGroup;
 			children = (
+				0A261DE121A71D7600969580 /* Models */,
 				0A6D51BE21A407CD009D7F59 /* Firebase */,
 				0A0C427E21A3E48700FB2F50 /* ViewControllers */,
 				0A0C426621A3D78D00FB2F50 /* AppDelegate.swift */,
@@ -90,8 +95,17 @@
 				0A0C427C21A3E48200FB2F50 /* LoginVC.swift */,
 				0A6D51C121A41A4A009D7F59 /* ProfileVC.swift */,
 				0A25368521A536090013E02D /* FriendsVC.swift */,
+				0A261DDF21A71D4800969580 /* SearchResultsVC.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0A261DE121A71D7600969580 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0A261DE221A71D8C00969580 /* PSUser.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		0A6D51BE21A407CD009D7F59 /* Firebase */ = {
@@ -254,6 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A261DE021A71D4800969580 /* SearchResultsVC.swift in Sources */,
+				0A261DE321A71D8C00969580 /* PSUser.swift in Sources */,
 				0A6D51C221A41A4A009D7F59 /* ProfileVC.swift in Sources */,
 				0A0C426921A3D78D00FB2F50 /* ViewController.swift in Sources */,
 				0A25368621A536090013E02D /* FriendsVC.swift in Sources */,

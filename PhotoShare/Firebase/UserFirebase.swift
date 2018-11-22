@@ -53,4 +53,23 @@ class UserFirebase {
         }
     }
     
+    class func searchUsers(with text: String?, completion: @escaping ([PSUser]) -> Void) {
+        guard let text = text else {
+            completion([])
+            return
+        }
+        usersRef.queryOrdered(byChild: "name").queryStarting(atValue: text).queryEnding(atValue: text + "~").observeSingleEvent(of: .value) { (snapshot) in
+            let enumerator = snapshot.children
+            var optionalUserDicts: [[String: Any]?] = []
+            while let child = enumerator.nextObject() as? DataSnapshot {
+                let userDict = child.value as? [String: Any]
+                optionalUserDicts.append(userDict)
+            }
+            let foundUsers = optionalUserDicts.flatMap({ (userDictionary) -> PSUser? in
+                PSUser.init(userDictionary: userDictionary)
+            })
+            completion(foundUsers)
+        }
+    }
+    
 }

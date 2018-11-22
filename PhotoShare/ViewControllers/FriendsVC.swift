@@ -13,12 +13,12 @@ class FriendsVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let vc = UIViewController()
-        let searchController = UISearchController(searchResultsController: vc)
+        let searchVC = SearchResultsVC()
+        let searchController = UISearchController(searchResultsController: searchVC)
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
+        navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchResultsUpdater = self
-        searchController.definesPresentationContext = true
+        definesPresentationContext = true
     }
 
 }
@@ -27,5 +27,11 @@ extension FriendsVC: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         let searchText = searchController.searchBar.text
         print(searchText ?? "")
+        UserFirebase.searchUsers(with: searchText) { users in
+            if let searchResultsVC = searchController.searchResultsController as? SearchResultsVC {
+                searchResultsVC.results = users
+                searchResultsVC.tableView.reloadData()
+            }
+        }
     }
 }
