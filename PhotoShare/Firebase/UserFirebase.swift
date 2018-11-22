@@ -12,6 +12,8 @@ import FBSDKLoginKit
 
 class UserFirebase {
     
+    static let usersRef = Database.database().reference().child("users")
+    
     class func signIn(result: FBSDKLoginManagerLoginResult!, completion: @escaping (Bool) -> Void) {
         let credential = FacebookAuthProvider.credential(withAccessToken: result.token.tokenString)
         signIn(credential: credential, completion: completion)
@@ -29,11 +31,18 @@ class UserFirebase {
                 completion(false)
                 return
             } else {
-                print(auth?.user.displayName ?? "")
+                storeUser(user: auth?.user)
                 completion(true)
                 //user is signed in
             }
         }
+    }
+    
+    private class func storeUser(user: User?) {
+        guard let user = user else { return }
+        usersRef.child(user.uid).child("name").setValue(user.displayName)
+        usersRef.child(user.uid).child("photoURL").setValue(user.photoURL?.absoluteString ?? "")
+        usersRef.child(user.uid).child("userID").setValue(user.uid)
     }
     
     class func signOut() {
