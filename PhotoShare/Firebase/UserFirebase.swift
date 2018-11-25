@@ -72,4 +72,27 @@ class UserFirebase {
         }
     }
     
+    class func invite(userID: String, completion: @escaping (Bool) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(false)
+            return
+        }
+        let userObject: [String: String] = [
+            "name": currentUser.displayName ?? "",
+            "photoURL": currentUser.photoURL?.absoluteString ?? "",
+            "userID": currentUser.uid
+        ]
+        usersRef.child(userID).child("invites").child(currentUser.uid).setValue(userObject)
+        completion(true)
+    }
+    
+    class func uninvite(userID: String, completion: @escaping (Bool) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(false)
+            return
+        }
+        usersRef.child(userID).child("invites").child(currentUser.uid).setValue(nil)
+        completion(true)
+    }
+    
 }
