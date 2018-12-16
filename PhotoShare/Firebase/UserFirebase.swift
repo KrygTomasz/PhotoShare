@@ -95,4 +95,16 @@ class UserFirebase {
         completion(true)
     }
     
+    class func observeUsers(type: String, event: DataEventType, completion: @escaping (PSUser?) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(nil)
+            return
+        }
+        usersRef.child(user.uid).child(type).observe(event) { (snapshot) in
+            let userDictionary = snapshot.value as? [String: Any]
+            let userObj = PSUser.init(userDictionary: userDictionary)
+            completion(userObj)
+        }
+    }
+    
 }
