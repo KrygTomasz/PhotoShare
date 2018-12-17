@@ -107,4 +107,34 @@ class UserFirebase {
         }
     }
     
+    class func acceptInvite(userObject: PSUser, completion: @escaping (Bool) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(false)
+            return
+        }
+        usersRef.child(user.uid).child("invites").child(userObject.userID).setValue(nil)
+        let userDictionary: [String : Any] = [
+            "name": userObject.name,
+            "photoURL": userObject.photoURL.absoluteString,
+            "userID": userObject.userID
+        ]
+        usersRef.child(user.uid).child("friends").child(userObject.userID).setValue(userDictionary)
+        let currentUserDictionary: [String : Any] = [
+            "name": user.displayName ?? "",
+            "photoURL": user.photoURL?.absoluteString ?? "",
+            "userID": user.uid
+        ]
+        usersRef.child(userObject.userID).child("friends").child(user.uid).setValue(currentUserDictionary)
+        completion(true)
+    }
+    
+    class func declineInvite(userObject: PSUser, completion: @escaping (Bool) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(false)
+            return
+        }
+        usersRef.child(user.uid).child("invites").child(userObject.userID).setValue(nil)
+        completion(true)
+    }
+    
 }

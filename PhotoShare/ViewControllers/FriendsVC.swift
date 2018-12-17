@@ -42,7 +42,7 @@ class FriendsVC: UITableViewController {
         }
         UserFirebase.observeUsers(type: "friends", event: .childAdded) { (user) in
             guard let user = user else { return }
-            self.dataModel[0].insert(user, at: 0)
+            self.dataModel[1].insert(user, at: 0)
             let indexPath = IndexPath(row: 0, section: 1)
             self.tableView.insertRows(at: [indexPath], with: .fade)
         }
@@ -93,14 +93,51 @@ extension FriendsVC {
         return titles[section]
     }
     
+    override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let acceptAction = createAcceptAction(indexPath: indexPath)
+        let acceptConfig = UISwipeActionsConfiguration(actions: [acceptAction])
+        return acceptConfig
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let declineAction = createDeclineAction(indexPath: indexPath)
+        let declineConfig = UISwipeActionsConfiguration(actions: [declineAction])
+        return declineConfig
+    }
+    
 }
 
 extension FriendsVC {
+    
     func configureCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let user = dataModel[indexPath.section][indexPath.row]
         cell.imageView?.sd_setImage(with: user.photoURL, placeholderImage: UIImage(named: "photo"), options: [], completed: nil)
         cell.textLabel?.text = user.name
+        cell.selectionStyle = .none
         return cell
     }
+    
+    func createAcceptAction(indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Accept") { (action, view, completion) in
+            UserFirebase.acceptInvite(userObject: self.dataModel[indexPath.section][indexPath.row], completion: { (status) in
+                completion(status)
+            })
+        }
+        action.image = UIImage(named: "check")
+        action.backgroundColor = .green
+        return action
+    }
+    
+    func createDeclineAction(indexPath: IndexPath) -> UIContextualAction {
+        let action = UIContextualAction(style: .normal, title: "Decline") { (action, view, completion) in
+            UserFirebase.declineInvite(userObject: self.dataModel[indexPath.section][indexPath.row], completion: { (status) in
+                completion(status)
+            })
+        }
+        action.image = UIImage(named: "cross")
+        action.backgroundColor = .red
+        return action
+    }
+    
 }
