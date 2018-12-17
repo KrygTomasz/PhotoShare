@@ -12,6 +12,8 @@ class PSUser {
     let name: String
     let photoURL: URL
     let userID: String
+    var isFriend: Bool = false
+    var isInvited: Bool = false
     
     init?(userDictionary: [String: Any]?) {
         guard

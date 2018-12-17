@@ -27,6 +27,7 @@ class FriendsVC: UITableViewController {
             self.dataModel[0].insert(user, at: 0)
             let indexPath = IndexPath(row: 0, section: 0)
             self.tableView.insertRows(at: [indexPath], with: .fade)
+            self.navigationController?.tabBarItem.badgeValue = "\(self.dataModel[0].count)"
         }
         UserFirebase.observeUsers(type: "invites", event: .childRemoved) { (user) in
             guard
@@ -39,6 +40,7 @@ class FriendsVC: UITableViewController {
             self.dataModel[0].remove(at: index)
             let indexPath = IndexPath(row: index, section: 0)
             self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.navigationController?.tabBarItem.badgeValue = self.dataModel[0].count == 0 ? nil : "\(self.dataModel[0].count)"
         }
         UserFirebase.observeUsers(type: "friends", event: .childAdded) { (user) in
             guard let user = user else { return }
@@ -103,6 +105,15 @@ extension FriendsVC {
         let declineAction = createDeclineAction(indexPath: indexPath)
         let declineConfig = UISwipeActionsConfiguration(actions: [declineAction])
         return declineConfig
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        switch indexPath.section {
+        case 0:
+            return true
+        default:
+            return false
+        }
     }
     
 }

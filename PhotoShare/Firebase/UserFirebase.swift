@@ -54,7 +54,10 @@ class UserFirebase {
     }
     
     class func searchUsers(with text: String?, completion: @escaping ([PSUser]) -> Void) {
-        guard let text = text else {
+        guard
+            let text = text,
+            let currentUser = Auth.auth().currentUser
+        else {
             completion([])
             return
         }
@@ -66,7 +69,13 @@ class UserFirebase {
                 optionalUserDicts.append(userDict)
             }
             let foundUsers = optionalUserDicts.flatMap({ (userDictionary) -> PSUser? in
-                PSUser.init(userDictionary: userDictionary)
+                let user = PSUser.init(userDictionary: userDictionary)
+                if
+                    let invites = userDictionary?["invites"] as? [String: Any],
+                    invites.keys.contains(currentUser.uid) {
+                        user?.isInvited = true
+                }
+                return user
             })
             completion(foundUsers)
         }

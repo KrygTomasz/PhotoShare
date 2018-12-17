@@ -22,6 +22,11 @@ class SearchResultsVC: UITableViewController {
         cell.selectionStyle = .none
         cell.textLabel?.text = user.name
         cell.imageView?.sd_setImage(with: user.photoURL, completed: nil)
+        if user.isInvited {
+            cell.accessoryView = UIImageView(image: UIImage(named: "invite+"))
+        } else if user.isFriend {
+            cell.accessoryView = UIImageView(image: UIImage(named: "friendsIcon"))
+        }
         return cell
     }
     
@@ -78,6 +83,10 @@ extension SearchResultsVC {
         let uninviteAction = createUninviteAction(indexPath: indexPath)
         let uninviteConfig = UISwipeActionsConfiguration(actions: [uninviteAction])
         return uninviteConfig
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return !results[indexPath.row].isFriend
     }
     
 }
