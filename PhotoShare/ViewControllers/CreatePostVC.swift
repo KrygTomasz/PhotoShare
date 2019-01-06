@@ -21,8 +21,14 @@ class CreatePostVC: UIViewController {
         postTextView.becomeFirstResponder()
     }
     
-    @IBAction func createPostPressed(_ sender: Any) {
-        
+    @IBAction func createPostPressed(_ sender: UIButton) {
+        sender.isEnabled = false
+        PostFirebase.createPost(image: image, postText: postTextView.text) { (status) in
+            sender.isEnabled = true
+            if status {
+                self.navigationController?.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
 }

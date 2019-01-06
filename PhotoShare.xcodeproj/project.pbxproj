@@ -20,6 +20,7 @@
 		0A6D51C021A407E2009D7F59 /* UserFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D51BF21A407E2009D7F59 /* UserFirebase.swift */; };
 		0A6D51C221A41A4A009D7F59 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D51C121A41A4A009D7F59 /* ProfileVC.swift */; };
 		0AE63A3A21E2506700DA9266 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE63A3921E2506700DA9266 /* CreatePostVC.swift */; };
+		0AE63A3E21E2549F00DA9266 /* PostFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE63A3D21E2549F00DA9266 /* PostFirebase.swift */; };
 		CC7348D1FF74348E93836CA0 /* Pods_PhotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDCC97ED94A49DC5121EBD9 /* Pods_PhotoShare.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,7 @@
 		0A6D51BF21A407E2009D7F59 /* UserFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebase.swift; sourceTree = "<group>"; };
 		0A6D51C121A41A4A009D7F59 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		0AE63A3921E2506700DA9266 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
+		0AE63A3D21E2549F00DA9266 /* PostFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFirebase.swift; sourceTree = "<group>"; };
 		744468B5299B44E499E07972 /* Pods-PhotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoShare/Pods-PhotoShare.debug.xcconfig"; sourceTree = "<group>"; };
 		BEDCC97ED94A49DC5121EBD9 /* Pods_PhotoShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AC9059A1766D5CC97D9C94 /* Pods-PhotoShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoShare/Pods-PhotoShare.release.xcconfig"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				0A6D51BF21A407E2009D7F59 /* UserFirebase.swift */,
+				0AE63A3D21E2549F00DA9266 /* PostFirebase.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				0A261DE321A71D8C00969580 /* PSUser.swift in Sources */,
 				0A6D51C221A41A4A009D7F59 /* ProfileVC.swift in Sources */,
 				0A0C426921A3D78D00FB2F50 /* ViewController.swift in Sources */,
+				0AE63A3E21E2549F00DA9266 /* PostFirebase.swift in Sources */,
 				0A25368621A536090013E02D /* FriendsVC.swift in Sources */,
 				0AE63A3A21E2506700DA9266 /* CreatePostVC.swift in Sources */,
 				0A6D51C021A407E2009D7F59 /* UserFirebase.swift in Sources */,
