@@ -17,8 +17,10 @@
 		0A25368621A536090013E02D /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25368521A536090013E02D /* FriendsVC.swift */; };
 		0A261DE021A71D4800969580 /* SearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A261DDF21A71D4800969580 /* SearchResultsVC.swift */; };
 		0A261DE321A71D8C00969580 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A261DE221A71D8C00969580 /* PSUser.swift */; };
+		0A27D3CA21E28AF000DBA82E /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A27D3C921E28AF000DBA82E /* PostCell.swift */; };
 		0A6D51C021A407E2009D7F59 /* UserFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D51BF21A407E2009D7F59 /* UserFirebase.swift */; };
 		0A6D51C221A41A4A009D7F59 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6D51C121A41A4A009D7F59 /* ProfileVC.swift */; };
+		0A791A5E21E28D13000A9E0D /* PostsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A791A5D21E28D13000A9E0D /* PostsVC.swift */; };
 		0AE63A3A21E2506700DA9266 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE63A3921E2506700DA9266 /* CreatePostVC.swift */; };
 		0AE63A3E21E2549F00DA9266 /* PostFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE63A3D21E2549F00DA9266 /* PostFirebase.swift */; };
 		CC7348D1FF74348E93836CA0 /* Pods_PhotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDCC97ED94A49DC5121EBD9 /* Pods_PhotoShare.framework */; };
@@ -37,8 +39,10 @@
 		0A25368521A536090013E02D /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		0A261DDF21A71D4800969580 /* SearchResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVC.swift; sourceTree = "<group>"; };
 		0A261DE221A71D8C00969580 /* PSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
+		0A27D3C921E28AF000DBA82E /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		0A6D51BF21A407E2009D7F59 /* UserFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFirebase.swift; sourceTree = "<group>"; };
 		0A6D51C121A41A4A009D7F59 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		0A791A5D21E28D13000A9E0D /* PostsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsVC.swift; sourceTree = "<group>"; };
 		0AE63A3921E2506700DA9266 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		0AE63A3D21E2549F00DA9266 /* PostFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFirebase.swift; sourceTree = "<group>"; };
 		744468B5299B44E499E07972 /* Pods-PhotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoShare/Pods-PhotoShare.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,9 +83,9 @@
 		0A0C426521A3D78D00FB2F50 /* PhotoShare */ = {
 			isa = PBXGroup;
 			children = (
+				0A27D3C821E28AD400DBA82E /* Views */,
 				0A261DE121A71D7600969580 /* Models */,
 				0A6D51BE21A407CD009D7F59 /* Firebase */,
-				0A0C427E21A3E48700FB2F50 /* ViewControllers */,
 				0A0C426621A3D78D00FB2F50 /* AppDelegate.swift */,
 				0A0C426821A3D78D00FB2F50 /* ViewController.swift */,
 				0A0C426A21A3D78D00FB2F50 /* Main.storyboard */,
@@ -101,6 +105,7 @@
 				0A25368521A536090013E02D /* FriendsVC.swift */,
 				0A261DDF21A71D4800969580 /* SearchResultsVC.swift */,
 				0AE63A3921E2506700DA9266 /* CreatePostVC.swift */,
+				0A791A5D21E28D13000A9E0D /* PostsVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,6 +116,15 @@
 				0A261DE221A71D8C00969580 /* PSUser.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		0A27D3C821E28AD400DBA82E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A0C427E21A3E48700FB2F50 /* ViewControllers */,
+				0A27D3C921E28AF000DBA82E /* PostCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		0A6D51BE21A407CD009D7F59 /* Firebase */ = {
@@ -276,6 +290,7 @@
 			files = (
 				0A261DE021A71D4800969580 /* SearchResultsVC.swift in Sources */,
 				0A261DE321A71D8C00969580 /* PSUser.swift in Sources */,
+				0A791A5E21E28D13000A9E0D /* PostsVC.swift in Sources */,
 				0A6D51C221A41A4A009D7F59 /* ProfileVC.swift in Sources */,
 				0A0C426921A3D78D00FB2F50 /* ViewController.swift in Sources */,
 				0AE63A3E21E2549F00DA9266 /* PostFirebase.swift in Sources */,
@@ -283,6 +298,7 @@
 				0AE63A3A21E2506700DA9266 /* CreatePostVC.swift in Sources */,
 				0A6D51C021A407E2009D7F59 /* UserFirebase.swift in Sources */,
 				0A0C426721A3D78D00FB2F50 /* AppDelegate.swift in Sources */,
+				0A27D3CA21E28AF000DBA82E /* PostCell.swift in Sources */,
 				0A0C427D21A3E48200FB2F50 /* LoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

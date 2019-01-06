@@ -33,6 +33,7 @@ class PostFirebase {
                         "photoUrl": downloadUrl.absoluteString,
                         "postText": postText,
                         "userID": currentUser.uid,
+                        "userPhotoUrl": currentUser.photoURL?.absoluteString ?? "",
                         "timeStamp": Date().timeIntervalSinceReferenceDate
                     ]
                     postRef.setValue(postObj)
