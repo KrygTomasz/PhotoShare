@@ -9,6 +9,7 @@ target 'PhotoShare' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'FBSDKLoginKit'
   pod 'SDWebImage', '~> 4.0'
 
