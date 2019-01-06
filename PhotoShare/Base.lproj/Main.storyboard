@@ -122,28 +122,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Od3-F6-vPR">
-                                <rect key="frame" x="0.0" y="116" width="375" height="551"/>
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Ou-Ye-hsP">
-                                        <rect key="frame" x="123.5" y="211.5" width="128" height="128"/>
+                                        <rect key="frame" x="123.5" y="187" width="128" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="bTM-Ks-B7M"/>
                                             <constraint firstAttribute="width" constant="128" id="n1d-nb-Hkf"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Qa-dJ-ZIS">
-                                        <rect key="frame" x="16" y="355.5" width="343" height="21"/>
+                                        <rect key="frame" x="16" y="331" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vNW-df-BrM">
+                                        <rect key="frame" x="150" y="368" width="75" height="30"/>
+                                        <state key="normal" title="View posts"/>
+                                        <connections>
+                                            <action selector="viewPostsPressed:" destination="bWa-Sj-V1c" eventType="touchUpInside" id="7Cd-UO-cxW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PD1-0D-nkc">
+                                        <rect key="frame" x="147.5" y="414" width="80" height="30"/>
+                                        <state key="normal" title="Create post"/>
+                                        <connections>
+                                            <action selector="createPostPressed:" destination="bWa-Sj-V1c" eventType="touchUpInside" id="nYB-S0-KJ9"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="2Ou-Ye-hsP" firstAttribute="centerY" secondItem="Od3-F6-vPR" secondAttribute="centerY" id="Hll-6f-tat"/>
                                     <constraint firstAttribute="trailing" secondItem="4Qa-dJ-ZIS" secondAttribute="trailing" constant="16" id="ShR-h0-5oY"/>
+                                    <constraint firstItem="PD1-0D-nkc" firstAttribute="centerX" secondItem="Od3-F6-vPR" secondAttribute="centerX" id="ZPV-CA-DRZ"/>
+                                    <constraint firstItem="PD1-0D-nkc" firstAttribute="top" secondItem="vNW-df-BrM" secondAttribute="bottom" constant="16" id="c0J-X7-eie"/>
+                                    <constraint firstItem="vNW-df-BrM" firstAttribute="centerX" secondItem="Od3-F6-vPR" secondAttribute="centerX" id="dcd-Zj-uhg"/>
                                     <constraint firstItem="4Qa-dJ-ZIS" firstAttribute="top" secondItem="2Ou-Ye-hsP" secondAttribute="bottom" constant="16" id="dqN-3s-m0z"/>
                                     <constraint firstItem="2Ou-Ye-hsP" firstAttribute="centerX" secondItem="Od3-F6-vPR" secondAttribute="centerX" id="fL4-0L-qjq"/>
+                                    <constraint firstItem="vNW-df-BrM" firstAttribute="top" secondItem="4Qa-dJ-ZIS" secondAttribute="bottom" constant="16" id="hlq-xf-h5k"/>
                                     <constraint firstItem="4Qa-dJ-ZIS" firstAttribute="leading" secondItem="Od3-F6-vPR" secondAttribute="leading" constant="16" id="tdy-uD-9Nd"/>
                                 </constraints>
                             </view>
@@ -172,6 +190,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VWk-YW-3yN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="7174" y="3202"/>
+        </scene>
+        <!--Create Post-->
+        <scene sceneID="Qes-SE-Yl7">
+            <objects>
+                <viewController storyboardIdentifier="CreatePostVC" title="Create Post" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ORn-Wq-cqA" customClass="CreatePostVC" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OFO-rc-6pZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0cZ-zj-bkm">
+                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="0cZ-zj-bkm" secondAttribute="height" id="vFg-b2-y7a"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="KcM-WC-uH1">
+                                <rect key="frame" x="0.0" y="395" width="311" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="qcM-cY-9aM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7K3-W2-qBx">
+                                <rect key="frame" x="311" y="395" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="659-tM-fdH"/>
+                                    <constraint firstAttribute="height" constant="64" id="kkz-uO-y9t"/>
+                                </constraints>
+                                <state key="normal" image="post"/>
+                                <connections>
+                                    <action selector="createPostPressed:" destination="ORn-Wq-cqA" eventType="touchUpInside" id="90v-0r-Djp"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Bph-2L-8I3" firstAttribute="trailing" secondItem="7K3-W2-qBx" secondAttribute="trailing" id="COe-PZ-Tz8"/>
+                            <constraint firstItem="0cZ-zj-bkm" firstAttribute="top" secondItem="Bph-2L-8I3" secondAttribute="top" id="DBm-Kz-dRa"/>
+                            <constraint firstItem="7K3-W2-qBx" firstAttribute="top" secondItem="0cZ-zj-bkm" secondAttribute="bottom" id="Iyj-Gz-hf0"/>
+                            <constraint firstItem="0cZ-zj-bkm" firstAttribute="leading" secondItem="Bph-2L-8I3" secondAttribute="leading" id="LaV-TM-WW0"/>
+                            <constraint firstItem="KcM-WC-uH1" firstAttribute="leading" secondItem="Bph-2L-8I3" secondAttribute="leading" id="VwW-ZC-Bt2"/>
+                            <constraint firstItem="KcM-WC-uH1" firstAttribute="top" secondItem="0cZ-zj-bkm" secondAttribute="bottom" id="gp9-QJ-0rC"/>
+                            <constraint firstItem="7K3-W2-qBx" firstAttribute="leading" secondItem="KcM-WC-uH1" secondAttribute="trailing" id="srL-dt-Xdj"/>
+                            <constraint firstItem="Bph-2L-8I3" firstAttribute="trailing" secondItem="0cZ-zj-bkm" secondAttribute="trailing" id="uNM-FS-QfG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Bph-2L-8I3"/>
+                    </view>
+                    <connections>
+                        <outlet property="postImageView" destination="0cZ-zj-bkm" id="8jJ-Li-KUL"/>
+                        <outlet property="postTextView" destination="KcM-WC-uH1" id="vAf-Oj-PEc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A3B-XR-QF5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8172" y="3201.9490254872567"/>
         </scene>
         <!--Profile-->
         <scene sceneID="soZ-Td-XgJ">
@@ -236,6 +311,7 @@
                 <tabBarController storyboardIdentifier="PhotoShareHomeVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6kJ-Q7-TYz" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Rlq-xL-JXw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -252,10 +328,11 @@
     </scenes>
     <resources>
         <image name="friendsIcon" width="75" height="75"/>
+        <image name="post" width="405" height="405"/>
         <image name="profileIcon" width="75" height="75"/>
         <image name="timelineIcon" width="75" height="75"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sbc-td-hKL"/>
+        <segue reference="kXl-Cm-KUZ"/>
     </inferredMetricsTieBreakers>
 </document>
