@@ -42,7 +42,13 @@ class ProfileVC: UIViewController {
     }
 
     @IBAction func viewPostsPressed(_ sender: UIButton) {
-        
+        guard
+            let postsVC = storyboard?.instantiateViewController(withIdentifier: "PostsVC") as? PostsVC,
+            let currentUser = Auth.auth().currentUser
+        else { return }
+        postsVC.userDisplayName = currentUser.displayName
+        postsVC.userID = currentUser.uid
+        navigationController?.pushViewController(postsVC, animated: true)
     }
     
     @IBAction func createPostPressed(_ sender: UIButton) {

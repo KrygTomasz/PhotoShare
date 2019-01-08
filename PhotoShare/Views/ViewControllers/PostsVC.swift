@@ -7,18 +7,27 @@
 //
 
 import UIKit
+import SDWebImage
 
 private let reuseIdentifier = "Cell"
 
 class PostsVC: UICollectionViewController {
     
+    var userDisplayName: String?
     var userID: String = ""
-    var posts: [String] = []
+    var posts: [Post] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //PostFirebase.get(userID: userID)
+        self.title = (userDisplayName ?? "User") + "'s Posts"
+        
+        PostFirebase.get(userID: userID) { (post) in
+            guard let post = post else { return }
+            self.posts.insert(post, at: 0)
+            let indexPath = IndexPath(item: 0, section: 0)
+            self.collectionView.insertItems(at: [indexPath])
+        }
     }
     
 }
@@ -57,7 +66,12 @@ extension PostsVC: UICollectionViewDelegateFlowLayout {
 extension PostsVC {
     
     func configureCell(indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCell else {
+            return UICollectionViewCell()
+        }
+        let post = posts[indexPath.item]
+        cell.postImageView.sd_setImage(with: post.photoUrl, placeholderImage: UIImage(named: "photo"), options: [], completed: nil)
+        return cell
     }
     
 }

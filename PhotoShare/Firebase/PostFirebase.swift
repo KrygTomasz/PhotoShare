@@ -45,4 +45,13 @@ class PostFirebase {
         }
     }
     
+    class func get(userID: String, completion: @escaping (Post?) -> Void) {
+        let postRef = Database.database().reference().child("posts")
+        postRef.queryOrdered(byChild: "userID").queryEqual(toValue: userID).observe(.childAdded) { (snapshot) in
+            let postDictionary = snapshot.value as? [String: Any]
+            let post = Post(postDictionary: postDictionary)
+            completion(post)
+        }
+    }
+    
 }
