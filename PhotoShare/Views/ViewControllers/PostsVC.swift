@@ -24,8 +24,7 @@ class PostsVC: UICollectionViewController {
         
         PostFirebase.get(userID: userID) { (post) in
             guard let post = post else { return }
-            self.posts.insert(post, at: 0)
-            let indexPath = IndexPath(item: 0, section: 0)
+            let indexPath = insertSortedByTimestamp(array: &self.posts, item: post)
             self.collectionView.insertItems(at: [indexPath])
         }
     }
@@ -66,12 +65,34 @@ extension PostsVC: UICollectionViewDelegateFlowLayout {
 extension PostsVC {
     
     func configureCell(indexPath: IndexPath) -> UICollectionViewCell {
+        let emptyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "EmptyPostCell", for: indexPath)
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCell", for: indexPath) as? PostCell else {
-            return UICollectionViewCell()
+            return emptyCell
         }
         let post = posts[indexPath.item]
         cell.postImageView.sd_setImage(with: post.photoUrl, placeholderImage: UIImage(named: "photo"), options: [], completed: nil)
         return cell
     }
     
+}
+
+func insertSortedByTimestamp<T: HasTimestamp>(array: inout [T], item: T) -> IndexPath {
+    var insertIndex = 0
+    for i in 0..<array.count {
+        if item.timestamp <= array[i].timestamp {
+            if i == array.count - 1 {
+                insertIndex = i + 1
+            } else {
+                if item.timestamp >= array[i+1].timestamp {
+                    insertIndex = i + 1
+                }
+            }
+        }
+    }
+    array.insert(item, at: insertIndex)
+    return IndexPath(item: insertIndex, section: 0)
+}
+
+protocol HasTimestamp {
+    var timestamp: Double { get }
 }
