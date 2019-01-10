@@ -116,6 +116,17 @@ extension FriendsVC {
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard
+            let postsVC = storyboard?.instantiateViewController(withIdentifier: "PostsVC") as? PostsVC,
+            indexPath.section == 1
+        else { return }
+        let user = dataModel[indexPath.section][indexPath.row]
+        postsVC.userID = user.userID
+        postsVC.userDisplayName = user.name
+        show(postsVC, sender: self)
+    }
+    
 }
 
 extension FriendsVC {

@@ -14,6 +14,9 @@
 		0A0C427121A3D78E00FB2F50 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A0C426F21A3D78E00FB2F50 /* LaunchScreen.storyboard */; };
 		0A0C427B21A3DB1F00FB2F50 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A0C427A21A3DB1F00FB2F50 /* GoogleService-Info.plist */; };
 		0A0C427D21A3E48200FB2F50 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0C427C21A3E48200FB2F50 /* LoginVC.swift */; };
+		0A220C0D21E667EF00DF3C3D /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A220C0B21E667EF00DF3C3D /* PostTableViewCell.swift */; };
+		0A220C0E21E667EF00DF3C3D /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A220C0C21E667EF00DF3C3D /* PostTableViewCell.xib */; };
+		0A220C1321E66ED200DF3C3D /* TimelineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A220C1221E66ED200DF3C3D /* TimelineVC.swift */; };
 		0A25368621A536090013E02D /* FriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25368521A536090013E02D /* FriendsVC.swift */; };
 		0A261DE021A71D4800969580 /* SearchResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A261DDF21A71D4800969580 /* SearchResultsVC.swift */; };
 		0A261DE321A71D8C00969580 /* PSUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A261DE221A71D8C00969580 /* PSUser.swift */; };
@@ -37,6 +40,9 @@
 		0A0C427221A3D78E00FB2F50 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A0C427A21A3DB1F00FB2F50 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A0C427C21A3E48200FB2F50 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		0A220C0B21E667EF00DF3C3D /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		0A220C0C21E667EF00DF3C3D /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
+		0A220C1221E66ED200DF3C3D /* TimelineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineVC.swift; sourceTree = "<group>"; };
 		0A25368521A536090013E02D /* FriendsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsVC.swift; sourceTree = "<group>"; };
 		0A261DDF21A71D4800969580 /* SearchResultsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsVC.swift; sourceTree = "<group>"; };
 		0A261DE221A71D8C00969580 /* PSUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PSUser.swift; sourceTree = "<group>"; };
@@ -108,8 +114,19 @@
 				0A261DDF21A71D4800969580 /* SearchResultsVC.swift */,
 				0AE63A3921E2506700DA9266 /* CreatePostVC.swift */,
 				0A791A5D21E28D13000A9E0D /* PostsVC.swift */,
+				0A220C1221E66ED200DF3C3D /* TimelineVC.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		0A220C0F21E669B700DF3C3D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0A27D3C921E28AF000DBA82E /* PostCell.swift */,
+				0A220C0B21E667EF00DF3C3D /* PostTableViewCell.swift */,
+				0A220C0C21E667EF00DF3C3D /* PostTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		0A261DE121A71D7600969580 /* Models */ = {
@@ -124,8 +141,8 @@
 		0A27D3C821E28AD400DBA82E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A220C0F21E669B700DF3C3D /* Cells */,
 				0A0C427E21A3E48700FB2F50 /* ViewControllers */,
-				0A27D3C921E28AF000DBA82E /* PostCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -217,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A0C427121A3D78E00FB2F50 /* LaunchScreen.storyboard in Resources */,
+				0A220C0E21E667EF00DF3C3D /* PostTableViewCell.xib in Resources */,
 				0A0C427B21A3DB1F00FB2F50 /* GoogleService-Info.plist in Resources */,
 				0A0C426E21A3D78E00FB2F50 /* Assets.xcassets in Resources */,
 				0A0C426C21A3D78D00FB2F50 /* Main.storyboard in Resources */,
@@ -298,6 +316,8 @@
 				0A573ACD21E50FA4000C8E22 /* Post.swift in Sources */,
 				0A0C426921A3D78D00FB2F50 /* ViewController.swift in Sources */,
 				0AE63A3E21E2549F00DA9266 /* PostFirebase.swift in Sources */,
+				0A220C0D21E667EF00DF3C3D /* PostTableViewCell.swift in Sources */,
+				0A220C1321E66ED200DF3C3D /* TimelineVC.swift in Sources */,
 				0A25368621A536090013E02D /* FriendsVC.swift in Sources */,
 				0AE63A3A21E2506700DA9266 /* CreatePostVC.swift in Sources */,
 				0A6D51C021A407E2009D7F59 /* UserFirebase.swift in Sources */,

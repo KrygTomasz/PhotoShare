@@ -11,8 +11,11 @@ import Firebase
 
 class PostFirebase {
     
+    static let usersRef = Database.database().reference().child("users")
+    static let postsRef = Database.database().reference().child("posts")
+    
     class func createPost(image: UIImage, postText: String, completion: @escaping (Bool) -> Void) {
-        let postRef = Database.database().reference().child("posts").childByAutoId()
+        let postRef = postsRef.childByAutoId()
         let fileName = postRef.key ?? "" + ".jpg"
         let storageRef = Storage.storage().reference().child("postImages").child(fileName)
         guard
@@ -46,11 +49,36 @@ class PostFirebase {
     }
     
     class func get(userID: String, completion: @escaping (Post?) -> Void) {
-        let postRef = Database.database().reference().child("posts")
-        postRef.queryOrdered(byChild: "userID").queryEqual(toValue: userID).observe(.childAdded) { (snapshot) in
+        postsRef.queryOrdered(byChild: "userID").queryEqual(toValue: userID).observe(.childAdded) { (snapshot) in
             let postDictionary = snapshot.value as? [String: Any]
             let post = Post(postDictionary: postDictionary)
             completion(post)
+        }
+    }
+    
+    class func getTimelinePosts(completion: @escaping (Post?) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            completion(nil)
+            return
+        }
+        postsRef.queryOrdered(byChild: "userID").queryEqual(toValue: currentUser.uid).observe(.childAdded, with: { (snapshot) in
+            let postDictionary = snapshot.value as? [String: Any]
+            let post = Post(postDictionary: postDictionary)
+            completion(post)
+        })
+        usersRef.child(currentUser.uid).child("friends").observe(.childAdded) { (snapshot) in
+            guard
+                let userObject = snapshot.value as? [String: Any],
+                let userID = userObject["userID"] as? String
+            else {
+                completion(nil)
+                return
+            }
+            postsRef.queryOrdered(byChild: "userID").queryEqual(toValue: userID).observe(.childAdded, with: { (snapshot) in
+                let postDictionary = snapshot.value as? [String: Any]
+                let post = Post(postDictionary: postDictionary)
+                completion(post)
+            })
         }
     }
     
