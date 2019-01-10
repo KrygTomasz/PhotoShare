@@ -36,6 +36,13 @@ extension TimelineVC {
         return configureCell(indexPath: indexPath)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let postDetailVC = storyboard?.instantiateViewController(withIdentifier: "PostDetailVC") as? PostDetailVC else { return }
+        postDetailVC.post = posts[indexPath.row]
+        postDetailVC.modalTransitionStyle = .crossDissolve
+        self.present(postDetailVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension TimelineVC {
@@ -44,14 +51,9 @@ extension TimelineVC {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell", for: indexPath) as? PostTableViewCell else { return UITableViewCell() }
         let post = posts[indexPath.row]
         cell.postLabel.text = post.postText
-        cell.postLabel.layer.cornerRadius = 8
-        cell.postLabel.layer.masksToBounds = true
         cell.postImageView.sd_setImage(with: post.photoUrl, placeholderImage: UIImage(named: "photo"), options: [], completed: nil)
         cell.userImageView.sd_setImage(with: post.userPhotoUrl, placeholderImage: UIImage(named: "photo"), options: [], completed: nil)
-        cell.userImageView.layer.cornerRadius = cell.userImageView.bounds.width/2
-        cell.userImageView.layer.borderWidth = 3.0
-        cell.userImageView.layer.borderColor = UIColor.white.cgColor
-        cell.userImageView.layer.masksToBounds = true
+
         cell.selectionStyle = .none
         return cell
     }

@@ -113,6 +113,86 @@
             </objects>
             <point key="canvasLocation" x="7174" y="2288"/>
         </scene>
+        <!--Post DetailVC-->
+        <scene sceneID="6cq-hg-Gu0">
+            <objects>
+                <viewController storyboardIdentifier="PostDetailVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="M5i-D3-gfM" customClass="PostDetailVC" customModule="PhotoShare" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YwS-d9-oa1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Al0-VF-A8r">
+                                <rect key="frame" x="0.0" y="20" width="375" height="601"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0If-YF-dJg">
+                                <rect key="frame" x="327" y="36" width="32" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32" id="0rn-Re-FNr"/>
+                                    <constraint firstAttribute="width" constant="32" id="wl8-eO-fYv"/>
+                                </constraints>
+                                <state key="normal" image="cross"/>
+                                <connections>
+                                    <action selector="closePressed:" destination="M5i-D3-gfM" eventType="touchUpInside" id="Xft-Zq-sTg"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bph-BZ-gnr">
+                                <rect key="frame" x="0.0" y="621" width="375" height="46"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zp2-g7-2I8">
+                                        <rect key="frame" x="8" y="8" width="315" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c31-fy-fko">
+                                        <rect key="frame" x="331" y="8" width="36" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="36" id="8cp-ZS-qyF"/>
+                                        </constraints>
+                                        <state key="normal" title="Send"/>
+                                        <connections>
+                                            <action selector="sendButtonPressed:" destination="M5i-D3-gfM" eventType="touchUpInside" id="FUO-Pi-FML"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.83234566450000003" blue="0.47320586440000001" alpha="0.74555864729999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="c31-fy-fko" secondAttribute="bottom" constant="8" id="2aY-6m-1tR"/>
+                                    <constraint firstItem="c31-fy-fko" firstAttribute="top" secondItem="Bph-BZ-gnr" secondAttribute="top" constant="8" id="71r-k5-gp6"/>
+                                    <constraint firstItem="Zp2-g7-2I8" firstAttribute="top" secondItem="Bph-BZ-gnr" secondAttribute="top" constant="8" id="9FB-iz-lbY"/>
+                                    <constraint firstAttribute="trailing" secondItem="c31-fy-fko" secondAttribute="trailing" constant="8" id="SWd-ET-FTy"/>
+                                    <constraint firstItem="c31-fy-fko" firstAttribute="leading" secondItem="Zp2-g7-2I8" secondAttribute="trailing" constant="8" id="eEn-3l-wAN"/>
+                                    <constraint firstAttribute="bottom" secondItem="Zp2-g7-2I8" secondAttribute="bottom" constant="8" id="fXn-pS-dHS"/>
+                                    <constraint firstItem="Zp2-g7-2I8" firstAttribute="leading" secondItem="Bph-BZ-gnr" secondAttribute="leading" constant="8" id="rrk-uI-nNt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Al0-VF-A8r" firstAttribute="top" secondItem="Hha-oE-ZaU" secondAttribute="top" id="3OF-2h-Uxw"/>
+                            <constraint firstItem="Bph-BZ-gnr" firstAttribute="top" secondItem="Al0-VF-A8r" secondAttribute="bottom" id="Eqd-li-9lR"/>
+                            <constraint firstItem="Hha-oE-ZaU" firstAttribute="trailing" secondItem="Bph-BZ-gnr" secondAttribute="trailing" id="NJ2-Eb-ZQB"/>
+                            <constraint firstItem="Hha-oE-ZaU" firstAttribute="bottom" secondItem="Bph-BZ-gnr" secondAttribute="bottom" id="PcA-5k-ecc"/>
+                            <constraint firstItem="Al0-VF-A8r" firstAttribute="leading" secondItem="Hha-oE-ZaU" secondAttribute="leading" id="StI-3W-qaO"/>
+                            <constraint firstItem="0If-YF-dJg" firstAttribute="top" secondItem="Hha-oE-ZaU" secondAttribute="top" constant="16" id="cqt-a0-ghx"/>
+                            <constraint firstItem="Hha-oE-ZaU" firstAttribute="trailing" secondItem="0If-YF-dJg" secondAttribute="trailing" constant="16" id="pfQ-sE-MWC"/>
+                            <constraint firstItem="Bph-BZ-gnr" firstAttribute="leading" secondItem="Hha-oE-ZaU" secondAttribute="leading" id="xkv-mu-8qH"/>
+                            <constraint firstItem="Hha-oE-ZaU" firstAttribute="trailing" secondItem="Al0-VF-A8r" secondAttribute="trailing" id="zbF-Vj-uKm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Hha-oE-ZaU"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentBottomConstraint" destination="PcA-5k-ecc" id="L2X-iN-ogO"/>
+                        <outlet property="commentTextField" destination="Zp2-g7-2I8" id="NyU-aO-KaO"/>
+                        <outlet property="sendCommentButton" destination="c31-fy-fko" id="vlX-M5-DXN"/>
+                        <outlet property="tableView" destination="Al0-VF-A8r" id="7DR-ZE-qLE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1E6-70-Zze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8128.8000000000002" y="2283.5082458770617"/>
+        </scene>
         <!--Profile Page-->
         <scene sceneID="75C-Jn-v8Z">
             <objects>
@@ -383,6 +463,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cross" width="60" height="60"/>
         <image name="friendsIcon" width="75" height="75"/>
         <image name="post" width="405" height="405"/>
         <image name="profileIcon" width="75" height="75"/>
