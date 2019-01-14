@@ -41,6 +41,13 @@ extension PostsVC {
         return configureCell(indexPath: indexPath)
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let postDetailVC = storyboard?.instantiateViewController(withIdentifier: "PostDetailVC") as? PostDetailVC else { return }
+        postDetailVC.post = posts[indexPath.item]
+        postDetailVC.modalTransitionStyle = .crossDissolve
+        self.present(postDetailVC, animated: true, completion: nil)
+    }
+    
 }
 
 extension PostsVC: UICollectionViewDelegateFlowLayout {
@@ -74,25 +81,4 @@ extension PostsVC {
         return cell
     }
     
-}
-
-func insertSortedByTimestamp<T: HasTimestamp>(array: inout [T], item: T) -> IndexPath {
-    var insertIndex = 0
-    for i in 0..<array.count {
-        if item.timestamp <= array[i].timestamp {
-            if i == array.count - 1 {
-                insertIndex = i + 1
-            } else {
-                if item.timestamp >= array[i+1].timestamp {
-                    insertIndex = i + 1
-                }
-            }
-        }
-    }
-    array.insert(item, at: insertIndex)
-    return IndexPath(item: insertIndex, section: 0)
-}
-
-protocol HasTimestamp {
-    var timestamp: Double { get }
 }

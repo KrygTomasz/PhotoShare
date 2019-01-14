@@ -28,6 +28,10 @@ class LoginVC: UIViewController {
 extension LoginVC: FBSDKLoginButtonDelegate {
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if let error = error {
+            print(error.localizedDescription)
+            return
+        }
         if result.isCancelled { return }
         UserFirebase.signIn(result: result) { (status) in
             if status {

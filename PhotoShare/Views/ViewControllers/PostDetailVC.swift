@@ -32,6 +32,15 @@ class PostDetailVC: UIViewController {
         tableView.register(postNib, forCellReuseIdentifier: "PostTableViewCell")
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name:         UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name:         UIResponder.keyboardWillHideNotification, object: nil)
+        
+        CommentFirebase.getComments(postPhotoUrlString: post?.photoUrl.absoluteString ?? "") { (comment) in
+            guard let comment = comment else { return }
+            let indexPath = insertSortedReversedByTimestamp(array: &self.comments, item: comment)
+            let correctedIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+            self.tableView.insertRows(at: [correctedIndexPath], with: .fade)
+            let lastIndexPath = IndexPath(row: self.comments.count, section: 0)
+            self.tableView.scrollToRow(at: lastIndexPath, at: .bottom, animated: true)
+        }
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
@@ -57,7 +66,13 @@ class PostDetailVC: UIViewController {
     }
     
     @IBAction func sendButtonPressed(_ sender: UIButton) {
-        
+        sender.isEnabled = false
+        CommentFirebase.createComment(commentText: commentTextField.text ?? "", postPhotoUrlString: post?.photoUrl.absoluteString ?? "") { (status) in
+            if status {
+                self.commentTextField.text = ""
+            }
+            sender.isEnabled = true
+        }
     }
     
     @IBAction func closePressed(_ sender: UIButton) {
@@ -102,6 +117,7 @@ extension PostDetailVC {
         let comment = comments[indexPath.row-1]
         cell.imageView?.sd_setImage(with: comment.photoUrl, placeholderImage: UIImage(named: "photo"), options: [], completed: nil)
         cell.textLabel?.text = comment.commentText
+        cell.selectionStyle = .none
         return cell
     }
     

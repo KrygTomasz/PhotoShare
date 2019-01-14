@@ -14,12 +14,12 @@ class Comment: HasTimestamp {
     let commentText: String
     let photoUrl: URL
     
-    init?(commentDictionary: [String: Any]) {
+    init?(commentDictionary: [String: Any]?) {
         guard
-            let urlString = commentDictionary["photoUrl"] as? String,
+            let urlString = commentDictionary?["photoUrl"] as? String,
             let url = URL(string: urlString),
-            let timestamp = commentDictionary["timestamp"] as? Double,
-            let commentText = commentDictionary["commentText"] as? String
+            let timestamp = commentDictionary?["timestamp"] as? Double,
+            let commentText = commentDictionary?["commentText"] as? String
         else { return nil }
         self.timestamp = timestamp
         self.commentText = commentText

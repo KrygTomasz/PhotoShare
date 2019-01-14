@@ -29,6 +29,8 @@
 		0ABCDCFD21E7C97E00304F44 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ABCDCFC21E7C97E00304F44 /* Comment.swift */; };
 		0AE63A3A21E2506700DA9266 /* CreatePostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE63A3921E2506700DA9266 /* CreatePostVC.swift */; };
 		0AE63A3E21E2549F00DA9266 /* PostFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE63A3D21E2549F00DA9266 /* PostFirebase.swift */; };
+		0AF1B16621ED23F80049DF16 /* CommentFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1B16521ED23F80049DF16 /* CommentFirebase.swift */; };
+		0AF1B16921ED2C1A0049DF16 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF1B16821ED2C1A0049DF16 /* Timestamp.swift */; };
 		CC7348D1FF74348E93836CA0 /* Pods_PhotoShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEDCC97ED94A49DC5121EBD9 /* Pods_PhotoShare.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,8 @@
 		0ABCDCFC21E7C97E00304F44 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		0AE63A3921E2506700DA9266 /* CreatePostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostVC.swift; sourceTree = "<group>"; };
 		0AE63A3D21E2549F00DA9266 /* PostFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFirebase.swift; sourceTree = "<group>"; };
+		0AF1B16521ED23F80049DF16 /* CommentFirebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentFirebase.swift; sourceTree = "<group>"; };
+		0AF1B16821ED2C1A0049DF16 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
 		744468B5299B44E499E07972 /* Pods-PhotoShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoShare/Pods-PhotoShare.debug.xcconfig"; sourceTree = "<group>"; };
 		BEDCC97ED94A49DC5121EBD9 /* Pods_PhotoShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PhotoShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7AC9059A1766D5CC97D9C94 /* Pods-PhotoShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PhotoShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-PhotoShare/Pods-PhotoShare.release.xcconfig"; sourceTree = "<group>"; };
@@ -147,6 +151,7 @@
 		0A27D3C821E28AD400DBA82E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0AF1B16721ED2C0D0049DF16 /* Common */,
 				0A220C0F21E669B700DF3C3D /* Cells */,
 				0A0C427E21A3E48700FB2F50 /* ViewControllers */,
 			);
@@ -158,8 +163,17 @@
 			children = (
 				0A6D51BF21A407E2009D7F59 /* UserFirebase.swift */,
 				0AE63A3D21E2549F00DA9266 /* PostFirebase.swift */,
+				0AF1B16521ED23F80049DF16 /* CommentFirebase.swift */,
 			);
 			path = Firebase;
+			sourceTree = "<group>";
+		};
+		0AF1B16721ED2C0D0049DF16 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0AF1B16821ED2C1A0049DF16 /* Timestamp.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		304869FA030381DCA821A6DA /* Frameworks */ = {
@@ -320,9 +334,11 @@
 				0A791A5E21E28D13000A9E0D /* PostsVC.swift in Sources */,
 				0A6D51C221A41A4A009D7F59 /* ProfileVC.swift in Sources */,
 				0A573ACD21E50FA4000C8E22 /* Post.swift in Sources */,
+				0AF1B16921ED2C1A0049DF16 /* Timestamp.swift in Sources */,
 				0ABCDCFD21E7C97E00304F44 /* Comment.swift in Sources */,
 				0A0C426921A3D78D00FB2F50 /* ViewController.swift in Sources */,
 				0AE63A3E21E2549F00DA9266 /* PostFirebase.swift in Sources */,
+				0AF1B16621ED23F80049DF16 /* CommentFirebase.swift in Sources */,
 				0A220C0D21E667EF00DF3C3D /* PostTableViewCell.swift in Sources */,
 				0A220C1321E66ED200DF3C3D /* TimelineVC.swift in Sources */,
 				0A25368621A536090013E02D /* FriendsVC.swift in Sources */,
